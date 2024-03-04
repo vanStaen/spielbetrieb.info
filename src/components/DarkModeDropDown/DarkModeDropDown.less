@@ -1,22 +1,22 @@
-.languageDropdown__container {
-  .languageDropdown {
+.darkModeDropdown__container {
+  .darkModeDropdown {
     position: absolute;
     z-index: 1001;
     bottom: 5px;
-    left: 0;
+    left: 40px;
     margin: 15px 25px;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 2.5px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     cursor: pointer;
     &:hover {
       opacity: .85;
     }
   }
-  .languageDropdown__menu {
+  .darkModeDropdown__menu {
     position: absolute;
-    left: 18px;
+    left: 60px;
     bottom: 50px;
     z-index: 10; 
     width: auto;
@@ -24,16 +24,15 @@
     opacity: 1;
     transition: opacity .3s;
     .menu__element {
-      font-size: 20px;
-      font-weight: 400;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 300;
       letter-spacing: 2px;
-      padding: 0 8px 0 10px;
-      margin: 6px 0;
+      padding: 0px 15px;
+      margin: 10px 0;
       cursor: pointer;
       &:hover {
-          font-weight: 400;
           text-decoration: none;
-          filter: contrast(2);
       }
     }
   }

@@ -1,59 +1,68 @@
-import React, { useState } from "react";
-import { Menu, Dropdown } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from "react";
+import { observer } from "mobx-react";
 import { useTranslation } from "react-i18next";
+import { pageStore } from "../../store/pageStore/pageStore";
 
 import "./LanguageDropDown.less";
 
-export const LanguageDropDown = () => {
+export const LanguageDropDown = observer(() => {
   const { i18n } = useTranslation();
-  const initLanguage = i18n.language.slice(-2);
-  const [language, setLanguage] = useState(
-    initLanguage === "US" ? "EN" : initLanguage
-  );
+  const [language, setLanguage] = useState(pageStore.selectedLanguage);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const onLanguageChangeHandler = (value) => {
+    pageStore.setSelectedLanguage(value);
     if (value === "en") {
       i18n.changeLanguage("en-US");
-      setLanguage("EN");
+      setLanguage("en");
     } else if (value === "de") {
       i18n.changeLanguage("de-DE");
-      setLanguage("DE");
+      setLanguage("de");
     }
   };
 
-  const menu = (
-    <Menu>
-      <Menu.Item
-        onClick={() => {
-          onLanguageChangeHandler("en");
-        }}
-      >
-        <div className="languageDropdown__item">EN</div>
-      </Menu.Item>
-      <Menu.Item
-        onClick={() => {
-          onLanguageChangeHandler("de");
-        }}
-      >
-        <div className="languageDropdown__item">DE</div>
-      </Menu.Item>
-    </Menu>
-  );
+  useEffect(() => {
+    setLanguage(pageStore.selectedLanguage);
+  }, [pageStore.selectedLanguage]);
 
   return (
-    <div className="languageDropdown">
-      <Dropdown overlay={menu} trigger={"click"}>
-        <a
-          className="ant-dropdown-link"
-          onClick={(e) => {
-            e.preventDefault();
+    <div className="languageDropdown__container">
+      <div
+        className={`languageDropdown ${pageStore.selectedTheme === "light" ? "lightColorTheme__SubText" : "darkColorTheme__SubText"}`}
+        onClick={() => {
+          setShowLanguageMenu(!showLanguageMenu);
+        }}
+      >
+        {language}
+      </div>
+      {showLanguageMenu && (
+        <div
+          className={`languageDropdown__menu ${pageStore.selectedTheme === "light" ? "lightColorTheme__Menu" : "darkColorTheme__Menu"}`}
+          id="languageDropdownContainer"
+          onMouseLeave={() => {
+            setShowLanguageMenu(false);
           }}
         >
-          {language}
-          <DownOutlined />
-        </a>
-      </Dropdown>
+          <div
+            className="menu__element"
+            onClick={() => {
+              onLanguageChangeHandler("en");
+              setShowLanguageMenu(false);
+            }}
+          >
+            🇬🇧
+          </div>
+          <div
+            className="menu__element"
+            onClick={() => {
+              onLanguageChangeHandler("de");
+              setShowLanguageMenu(false);
+            }}
+          >
+            🇩🇪
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+});

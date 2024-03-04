@@ -2,7 +2,6 @@ import React from 'react';
 import { Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { GlitchText } from "../components/GlitchText/GlitchText";
 import EmailLogo from "../img/logos/emailLogo.png";
 
 import './Main.less';
@@ -13,9 +12,11 @@ export const Main = () => {
 
     return (
         <>
-            <GlitchText glitchText={'Spielbetrieb'} overText={'love to love'} />
-            <div>
-                Love to Love
+        <div className='background'></div>
+        <div className='main__container'>
+            <div className="main__title">Spielbetrieb</div>
+            <div className="main__subtext">love to love</div>
+            <div className='main__text'>
                 Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digital-Agentur spezialisiert auf Kommunikation, PR, Eventmanagement sowie Daten- & Jugendschutz.
 
             Zu unseren Leistungen gehören:
@@ -38,20 +39,7 @@ export const Main = () => {
                 - Happy Fisting Club - Anale Liebe, von soft bis extrem
                 - Harness Madness - Hedonist*innen im Harness
             </div>
-            <div className="socialsContainer">
-                <Tooltip
-                    placement="bottom"
-                    title={
-                        <>
-                            {t("general.emailUs")}
-                        </>
-                    }
-                >
-                    <a className="link" href="mailto:mail@spielbetrieb.info">
-                        <img className="emailLogo" src={EmailLogo} id="email" />
-                    </a>
-                </Tooltip>
-            </div>
+        </div>
         </>
     )
 }

@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 import { consoleGreetings } from "./helpers/consoleGreetings";
 import { Main } from './pages/Main';
+import { pageStore } from "./store/pageStore/pageStore";
 
 import "./lib/i18n";
 import "./App.less";
@@ -26,13 +27,23 @@ const App = observer(() => {
   }, []);
 
   useEffect(() => {
-    const language = navigator.language || navigator.userLanguage;
-    if (language === "de-DE") {
-      i18n.changeLanguage("de-DE");
+    if (pageStore.selectedLanguage) {
+      if (pageStore.selectedLanguage === "de") {
+        i18n.changeLanguage("de-DE");
+      } else {
+        i18n.changeLanguage("en-US");
+      }
     } else {
-      i18n.changeLanguage("en-US");
+      const browserlanguage = navigator.language || navigator.userLanguage;
+      if (browserlanguage === "de-DE") {
+        i18n.changeLanguage("de-DE");
+        pageStore.setSelectedLanguage("de");
+      } else {
+        i18n.changeLanguage("en-US");
+        pageStore.setSelectedLanguage("en");
+      }
     }
-  }, [i18n]);
+  }, [i18n, pageStore.selectedLanguage]);
 
   useEffect(() => {
     consoleGreetings();
