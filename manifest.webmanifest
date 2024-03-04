@@ -1,0 +1,10 @@
+{
+  "short_name": "stateofconfusiom",
+  "name": "State Of Confusion",
+  "description" : "State Of Confusion | Techno aus Berlin",
+  "start_url": "https://stateofconfusiom.de",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "clipboardWrite": true
+}
