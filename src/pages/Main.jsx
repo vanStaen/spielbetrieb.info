@@ -3,9 +3,6 @@ import { Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 
 import { GlitchText } from "../components/GlitchText/GlitchText";
-import InstaLogo from "../img/logos/instaLogo.png";
-import TelegramLogo from "../img/logos/telegramLogo.png";
-import SoundcloudLogo from "../img/logos/soundcloudLogo.png";
 import EmailLogo from "../img/logos/emailLogo.png";
 
 import './Main.less';
