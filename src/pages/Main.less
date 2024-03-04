@@ -1,0 +1,40 @@
+.socialsContainer {
+    position: absolute;
+    bottom: 20px;
+    z-index: 2;
+    margin: 5px 10px;
+    
+    .link {
+        display: inline-block;
+        color: rgba(255, 255, 255, .95);
+        font-weight: 300;
+        cursor: pointer;
+        text-decoration: none;
+        letter-spacing: 3px;
+        transition: color .3s;
+        padding: 0 7px; 
+        @media all and (max-width: 520px) {
+            padding: 0 12px;
+          }
+        &:hover {
+            text-decoration: none;
+            opacity: .75;
+        }
+        .instaLogo {
+            width: 23px;
+        }
+        .telegramLogo {
+            width: 25px;
+            padding-left: 4px;
+        }
+        .soundcloudLogo {
+            width: 35px;
+            height: 23px;
+            padding-left: 4px;
+        }
+        .emailLogo {
+            width: 33px;
+            height: 25px;
+        }
+    }
+}
