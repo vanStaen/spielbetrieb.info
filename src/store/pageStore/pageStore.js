@@ -4,38 +4,22 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export class PageStore {
-  selectedTheme = cookies.get("selectedTheme") || "dark";
   selectedLanguage = cookies.get("selectedLanguage");
   allowCookie = cookies.get("allowCookie");
-  showMenu = false;
-  showMenuMobile = false;
-  events = [];
-  isLoadingEvent = true;
-  eventtypes = [];
-  tags = [];
-  locations = [];
+  selectedCarouselPage = 1;
 
   constructor() {
     makeObservable(this, {
-      selectedTheme: observable,
-      setSelectedTheme: action,
       selectedLanguage: observable,
       setSelectedLanguage: action,
       allowCookie: observable,
       setAllowCookie: action,
-      showMenu: observable,
-      setShowMenu: action,
-      showMenuMobile: observable,
-      setShowMenuMobile: action,
+      selectedCarouselPage: observable,
+      setSelectedCarouselPage: action,
+      setCarouselNext: action,
+      setCarouselPrevious: action,
     });
   }
-
-  setSelectedTheme = (selectedTheme) => {
-    this.selectedTheme = selectedTheme;
-    if (this.allowCookie) {
-      cookies.set("selectedTheme", selectedTheme, { path: "/" });
-    }
-  };
 
   setSelectedLanguage = (selectedLanguage) => {
     this.selectedLanguage = selectedLanguage;
@@ -51,13 +35,26 @@ export class PageStore {
     }
   };
 
-  setShowMenu = (showMenu) => {
-    this.showMenu = showMenu;
+  setSelectedCarouselPage = (selectedCarouselPage) => {
+    this.selectedCarouselPage = selectedCarouselPage;
   };
 
-  setShowMenuMobile = (showMenuMobile) => {
-    this.showMenuMobile = showMenuMobile;
-  };
+  setCarouselNext = () => {
+    if (this.selectedCarouselPage === 3) {
+      this.setSelectedCarouselPage(1);
+    } else {
+      this.setSelectedCarouselPage(this.selectedCarouselPage +1);
+    }
+  }
+
+  setCarouselPrevious = () => {
+    if (this.selectedCarouselPage === 1) {
+      this.setSelectedCarouselPage(3);
+    } else {
+      this.setSelectedCarouselPage(this.selectedCarouselPage -1);
+    }
+    
+  }
 }
 
 export const pageStore = new PageStore();

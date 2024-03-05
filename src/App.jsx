@@ -52,8 +52,8 @@ const App = observer(() => {
   return (
     <BrowserRouter>
       <div className="App">
+        <LanguageDropDown />
         <div className="main">
-          <LanguageDropDown />
           <Main />
         </div>
       </div>
