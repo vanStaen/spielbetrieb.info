@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { DoubleLeftOutlined } from "@ant-design/icons";
 
@@ -9,6 +9,8 @@ import "./Main.less";
 import { pageStore } from "../store/pageStore/pageStore";
 
 export const Main = observer(() => {
+  const [showPoints, setShowPoints] = useState(true);
+
   useEffect(() => {
     const allPoints = document.getElementsByClassName("point");
     allPoints[0].style.width = "10px";
@@ -29,12 +31,24 @@ export const Main = observer(() => {
     elementArrow.style.display = "none";
   };
 
+  const resizeHandler = () => {
+    const windowInnerWidth = window.innerWidth;
+    if (windowInnerWidth > 725) {
+      setShowPoints(true);
+    } else {
+      setShowPoints(false);
+    }
+  };
+
   useEffect(() => {
+    resizeHandler();
     document.addEventListener("scroll", hideArrow);
+    window.addEventListener("resize", resizeHandler);
     return () => {
       document.removeEventListener("scroll", hideArrow);
+      document.removeEventListener("resize", resizeHandler);
     };
-  }, [hideArrow]);
+  }, [hideArrow, resizeHandler]);
 
   const arrowClickHandler = () => {
     /* const windowInnerWidth = window.innerWidth;
@@ -65,11 +79,25 @@ export const Main = observer(() => {
           </span>
         </div>
         <CarouselElement id={pageStore.selectedCarouselPage} />
-        <div className="carouselPoints">
-          <div id="point1" className="point point1"></div>
-          <div id="point2" className="point point2"></div>
-          <div id="point3" className="point point3"></div>
-        </div>
+        {showPoints && (
+          <div className="carouselPoints">
+            <div
+              id="point1"
+              className="point point1"
+              onClick={() => pageStore.setSelectedCarouselPage(1)}
+            ></div>
+            <div
+              id="point2"
+              className="point point2"
+              onClick={() => pageStore.setSelectedCarouselPage(2)}
+            ></div>
+            <div
+              id="point3"
+              className="point point3"
+              onClick={() => pageStore.setSelectedCarouselPage(3)}
+            ></div>
+          </div>
+        )}
       </div>
     </>
   );

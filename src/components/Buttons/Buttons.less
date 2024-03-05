@@ -16,13 +16,7 @@
 
 .controls {
   .next, .prev {
-
     z-index: 2;
-
-    @media all and (max-width: 520px) {
-      visibility: hidden;
-    }
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +29,7 @@
     outline-color: transparent;
     outline-style: none;
     outline-width: 0;
-    top: calc(50% - (0.5 * @control-button-height));  
+    top: calc(50% - (0.5 * @control-button-height) + 40px);  
   
     .arrowLeft, .arrowRight {
       width: 100%;

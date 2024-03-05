@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import { pageStore } from "../../store/pageStore/pageStore";
 
 import "./Buttons.less";
 
 export const Buttons = (props) => {
   const throttling = useRef(false);
+  const [showArrows, setShowArrows] = useState(true);
 
   const keyDownHandler = (event) => {
     // event.preventDefault();
@@ -37,12 +37,24 @@ export const Buttons = (props) => {
     }
   };
 
+  const resizeHandler = () => {
+    const windowInnerWidth = window.innerWidth;
+    if (windowInnerWidth > 840) {
+      setShowArrows(true);
+    } else {
+      setShowArrows(false);
+    }
+  };
+
   useEffect(() => {
+    resizeHandler();
     document.addEventListener("keydown", keyDownHandler);
+    window.addEventListener("resize", resizeHandler);
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
+      document.removeEventListener("resize", resizeHandler);
     };
-  }, [keyDownHandler]);
+  }, [keyDownHandler, resizeHandler]);
 
   useEffect(() => {
     if (props.color) {
@@ -74,12 +86,12 @@ export const Buttons = (props) => {
   return (
     <>
       <div className="controls">
-        {pageStore.selectedCarouselPage > 1 && (
+        {pageStore.selectedCarouselPage > 1 && showArrows && (
           <div className="prev" onClick={() => handleControlClick("arrowLeft")}>
             <span id="arrowLeft" className="arrowLeft" />
           </div>
         )}
-        {pageStore.selectedCarouselPage < 3 && (
+        {pageStore.selectedCarouselPage < 3 && showArrows && (
           <div
             className="next"
             onClick={() => handleControlClick("arrowRight")}
