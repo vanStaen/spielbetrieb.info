@@ -8,7 +8,7 @@ export const Buttons = (props) => {
   const throttling = useRef(false);
 
   const keyDownHandler = (event) => {
-    //event.preventDefault();
+    // event.preventDefault();
     const keyPressed = event.key.toLowerCase();
     if (throttling.current === false) {
       throttling.current = true;
@@ -59,9 +59,9 @@ export const Buttons = (props) => {
       element.classList.add("active");
       setTimeout(() => {
         if (elementId === "arrowRight") {
-          pageStore.setCarouselNext()
+          pageStore.setCarouselNext();
         } else if (elementId === "arrowLeft") {
-          pageStore.setCarouselPrevious()
+          pageStore.setCarouselPrevious();
         }
         element.classList.remove("active");
       }, 500);

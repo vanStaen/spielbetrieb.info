@@ -43,18 +43,17 @@ export class PageStore {
     if (this.selectedCarouselPage === 3) {
       this.setSelectedCarouselPage(1);
     } else {
-      this.setSelectedCarouselPage(this.selectedCarouselPage +1);
+      this.setSelectedCarouselPage(this.selectedCarouselPage + 1);
     }
-  }
+  };
 
   setCarouselPrevious = () => {
     if (this.selectedCarouselPage === 1) {
       this.setSelectedCarouselPage(3);
     } else {
-      this.setSelectedCarouselPage(this.selectedCarouselPage -1);
+      this.setSelectedCarouselPage(this.selectedCarouselPage - 1);
     }
-    
-  }
+  };
 }
 
 export const pageStore = new PageStore();

@@ -5,14 +5,14 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
 import { consoleGreetings } from "./helpers/consoleGreetings";
-import { Main } from './pages/Main';
+import { Main } from "./pages/Main";
 import { pageStore } from "./store/pageStore/pageStore";
 
 import "./lib/i18n";
 import "./App.less";
 
 const defineVariableHeight = () => {
-  let vh = window.innerHeight * 0.01;
+  const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 };
 
