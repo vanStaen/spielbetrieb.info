@@ -26,7 +26,7 @@ export const Main = observer(() => {
         allPoints[2].style.width = '10px';
         allPoints[2].style.backgroundColor = 'rgba(255,255,255,.75)';
         const selectedPoint = document.getElementById(`point${pageStore.selectedCarouselPage}`);
-        selectedPoint.style.width = '20px';
+        selectedPoint.style.width = '30px';
         selectedPoint.style.backgroundColor = 'rgba(255,255,255,1)';
     }, [pageStore.selectedCarouselPage])
 
