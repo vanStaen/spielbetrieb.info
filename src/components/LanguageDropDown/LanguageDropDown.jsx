@@ -28,7 +28,7 @@ export const LanguageDropDown = observer(() => {
   return (
     <div className="languageDropdown__container">
       <div
-        className={`languageDropdown ${pageStore.selectedTheme === "light" ? "lightColorTheme__SubText" : "darkColorTheme__SubText"}`}
+        className="languageDropdown"
         onClick={() => {
           setShowLanguageMenu(!showLanguageMenu);
         }}
@@ -37,7 +37,7 @@ export const LanguageDropDown = observer(() => {
       </div>
       {showLanguageMenu && (
         <div
-          className={`languageDropdown__menu ${pageStore.selectedTheme === "light" ? "lightColorTheme__Menu" : "darkColorTheme__Menu"}`}
+          className="languageDropdown__menu"
           id="languageDropdownContainer"
           onMouseLeave={() => {
             setShowLanguageMenu(false);

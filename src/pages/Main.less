@@ -1,26 +1,27 @@
 .background {
-    position: absolute;
-    z-index: 1;
-    top: 0;
     width: 100vw;
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     background-image: url('../img/background.jpg');
-    background-size: cover;
- }
-
-.main__container {
-    position: absolute;
-    z-index: 2;
-    max-width: 1200px;
+    background-size: cover; 
+}
 
     .main__title {
+        position: sticky;
+        z-index: 5;
+        top: 30px;
         font-size: 33px;
         font-family: "Roboto", Sans-serif;
         letter-spacing: 5px;
         font-weight: 600;
+        color: rgba(225, 207, 187, 1);
      }
      .main__subtext {
+        position: sticky;
+        z-index: 5;
+        top: 80px;
         font-size: 13px;
         font-family: "Roboto", Sans-serif;
         letter-spacing: 10px;
@@ -28,44 +29,29 @@
         margin-top: 10px;
         margin-bottom: 20px;
         opacity: .5;
+        color: rgba(225, 207, 187, 1);
      }
-     .main__text {
-        font-size: 16px;
-        letter-spacing: 2px;
+
+.main__containerNext {
+    position: absolute;
+    z-index: 2;
+    top: 100vh;
+    width: 100vw;
+    min-height: calc(100vh - 120px);
+    background: linear-gradient(rgba(20, 36, 54, 1), 80%, rgba(225, 207, 187, 0.3));
+    border-top: solid rgba(225, 207, 187, 0.05);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .desc {
+        max-width: 700px;
         margin: 20px;
-        .main__carouselElement {
-            color: black;
-            background-color: rgba(255,255,255, .75);
-            border-radius: 5px;
-            padding: 20px 0 0 0;
-            margin: 30px 0;
-            .main__carouseltitle { 
-                font-weight: 500;
-            }
-            .main__carouselSubElement {
-                color: rgba(black, .75);
-                width: calc(33% - 40px);
-                padding: 10px 10px 20px 10px;
-                display: inline-block;
-                text-align: center;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                vertical-align: middle;
-                height: auto;
-            }
-        }
-     }
-     @media only screen and (max-width: 675px) {
-        .main__title {
-           font-size: 22px;
-        }
-        .main__text {
-           .main__carouselElement {
-            .main__carouselSubElement {
-                border: 1px solid green;
-            }
-        }
-        }
-     }
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 3px;
+        font-weight: 300;
+        color: rgba(225, 207, 187, 1);
+    }
 }
