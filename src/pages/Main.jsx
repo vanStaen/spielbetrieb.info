@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
+import { DoubleLeftOutlined } from "@ant-design/icons";
 
 import { Buttons } from '../components/Buttons/Buttons';
 import { CarouselElement } from './CarouselElement/CarouselElement';
@@ -8,6 +9,13 @@ import './Main.less';
 import { pageStore } from '../store/pageStore/pageStore';
 
 export const Main = observer(() => {
+
+    useEffect(() => {
+        document.addEventListener("scroll", hideArrow);
+        return () => {
+        document.removeEventListener("scroll", hideArrow);
+        };
+    }, [hideArrow]);
 
     useEffect(() => {
         const allPoints = document.getElementsByClassName('point');
@@ -22,9 +30,28 @@ export const Main = observer(() => {
         selectedPoint.style.backgroundColor = 'rgba(255,255,255,1)';
     }, [pageStore.selectedCarouselPage])
 
+    const hideArrow = () => {
+        const elementArrow = document.getElementById("arrow");
+        elementArrow.style.display = "none";
+    }
+
+    const arrowClickHandler = () => {
+        /* const windowInnerWidth = window.innerWidth;
+        if (windowInnerWidth > 675) {
+          elementArrow.style.display = "none";
+        } */
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+        hideArrow();
+    };
+
     return (
         <>
             <div className='background'/>
+            <div className="main__doublearrow" id="arrow">
+                <DoubleLeftOutlined
+                onClick={arrowClickHandler}
+                />
+            </div>
             <div className="main__title">Spielbetrieb</div>
             <div className="main__subtext">love to love</div>
             <div className='main__containerNext'>

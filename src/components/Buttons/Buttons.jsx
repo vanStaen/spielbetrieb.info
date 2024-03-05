@@ -13,19 +13,23 @@ export const Buttons = (props) => {
     if (throttling.current === false) {
       throttling.current = true;
       if (keyPressed === "arrowright") {
-        const element = document.getElementById("arrowRight");
-        element.classList.add("active");
-        setTimeout(() => {
-          pageStore.setCarouselNext();
-          element.classList.remove("active");
-        }, 500);
+        if (pageStore.selectedCarouselPage < 3) {
+          const element = document.getElementById("arrowRight");
+          element.classList.add("active");
+          setTimeout(() => {
+            pageStore.setCarouselNext();
+            element.classList.remove("active");
+          }, 500);
+        }
       } else if (keyPressed === "arrowleft") {
-        const element = document.getElementById("arrowLeft");
-        element.classList.add("active");
-        setTimeout(() => {
-          pageStore.setCarouselPrevious();
-          element.classList.remove("active");
-        }, 500);
+        if (pageStore.selectedCarouselPage > 1) {
+          const element = document.getElementById("arrowLeft");
+          element.classList.add("active");
+          setTimeout(() => {
+            pageStore.setCarouselPrevious();
+            element.classList.remove("active");
+          }, 500);
+        }
       }
       setTimeout(() => {
         throttling.current = false;
