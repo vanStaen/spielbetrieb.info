@@ -3,10 +3,11 @@ import { observer } from "mobx-react";
 import { BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { LanguageDropDown } from "./components/LanguageDropDown/LanguageDropDown";
+import { Contact } from "./components/Contact/Contact";
 import { consoleGreetings } from "./helpers/consoleGreetings";
 import { Main } from "./pages/Main";
 import { pageStore } from "./store/pageStore/pageStore";
+import { Impressum } from "./components/Impressum/Impressum";
 
 import "./lib/i18n";
 import "./App.less";
@@ -52,7 +53,8 @@ const App = observer(() => {
   return (
     <BrowserRouter>
       <div className="App">
-        <LanguageDropDown />
+        <Contact />
+        <Impressum />
         <div className="main">
           <Main />
         </div>

@@ -7,7 +7,7 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
-    port: 3001,
+    port: 3002,
     liveReload: true,
     hot: false,
   },
