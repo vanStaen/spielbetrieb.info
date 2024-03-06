@@ -38,7 +38,7 @@ export const Impressum = () => {
         Registergericht: Amtsgericht Charlottenburg <br />
         <br />
         <b>Vertreten durch:</b> <br />
-        Dominique Roch, Marc Lindner, Clément van Staen, Marc Bohlen <br />
+        Dominique Roch, Marc Lindner <br />
         <br />
         <b>Kontakt</b> <br />
         Telefon: +49 176 48 27 58 17 <br />
