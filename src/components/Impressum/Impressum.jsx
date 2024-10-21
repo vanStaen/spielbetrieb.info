@@ -50,7 +50,7 @@ export const Impressum = () => {
         <br />
         <b>EU-Streitschlichtung </b> <br />
         Die Europäische Kommission stellt eine Plattform zur
-        Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/{" "}
+        Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>{" "}
         <br />
         Unsere E-Mail-Adresse finden Sie oben im Impressum. <br />
         <br />
