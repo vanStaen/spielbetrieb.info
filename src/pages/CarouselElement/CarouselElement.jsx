@@ -7,7 +7,7 @@ import data from "../../img/logos/data.png";
 import dj from "../../img/logos/dj.png";
 import chair from "../../img/logos/chair.png";
 import party from "../../img/logos/party.png";
-import fist from "../../img/logos/fist.png";
+import lips from "../../img/logos/lips.png";
 import queen from "../../img/logos/queen.png";
 import harness from "../../img/logos/harness.png";
 
@@ -206,11 +206,11 @@ const PartiesElement = (props) => {
       </div>
       <div className="bulle">
         <div className="imgcontainer">
-          <img src={fist} style={{ width: 100 }} />
+          <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Fisting Club</div>
-          Anale Liebe, von soft bis extrem
+          <div className="textcontainertitle">Erotic Art</div>
+          Love to Love
         </div>
       </div>
       <div className="bulle">
