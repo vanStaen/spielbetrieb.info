@@ -42,7 +42,7 @@ export const Impressum = () => {
         <br />
         <b>Kontakt</b> <br />
         Telefon: +49 176 48 27 58 17 <br />
-        E-Mail: impressum@liro.berlin <br />
+        E-Mail: mail@spielbetrieb.info <br />
         <br />
         <b>Umsatzsteuer-ID</b> <br />
         Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
