@@ -4,7 +4,7 @@ Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digita
 ## Hosting
 Hosted on 'GitHub Pages', hence the npm package `gh-pages`.
 
-Configuration for DNS on namecheap, to link to github:
+Configuration for DNS on united domains, to link to github:
 ```
 CNAME Record | www | vanstaen.github.io.
 A Record | @ | 185.199.108.153
