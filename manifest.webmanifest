@@ -1,8 +1,8 @@
 {
-  "short_name": "stateofconfusiom",
-  "name": "State Of Confusion",
-  "description" : "State Of Confusion | Techno aus Berlin",
-  "start_url": "https://stateofconfusiom.de",
+  "short_name": "spielbetrieb.info",
+  "name": "Spielbetrieb.info",
+  "description": "Spielbetrieb.info | love to love",
+  "start_url": "https://spielbetrieb.info",
   "display": "standalone",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
