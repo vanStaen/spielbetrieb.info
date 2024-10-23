@@ -113,8 +113,7 @@ const LegalElement = (props) => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">PR & Kommunikation</div>
-          Wir stehen unseren Partnern beratend zur Seite und übernehmen auch die
-          komplette Kommunikation.
+          Alles aus einer Hand von Strategie bis hin zum Community Management.
         </div>
       </div>
       <div className="bulle">
@@ -132,8 +131,8 @@ const LegalElement = (props) => {
           <img src={data} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Daten- & Jugendschutz</div>
-          Wir kümmern uns darum, damit du ruhig schlafen kannst
+          <div className="textcontainertitle">Datenschutz</div>
+          Wir sind Datenschützer. Natürlich beraten und schulen auch Gewerbetreibende.
         </div>
       </div>
     </div>
@@ -153,6 +152,7 @@ const EventElement = (props) => {
       <div className="title">
         Zusätzlich bieten wir Live-Events und Eventmanagement an
       </div>
+      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={party} style={{ width: 100 }} />
@@ -161,7 +161,8 @@ const EventElement = (props) => {
           <div className="textcontainertitle">Einlasskontrolle</div>
           Ein erfahrenes Team an deiner Tür
         </div>
-      </div>
+      </div> 
+      */}
       <div className="bulle">
         <div className="imgcontainer">
           <img src={chair} style={{ width: 100 }} />
@@ -171,6 +172,7 @@ const EventElement = (props) => {
           Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons
         </div>
       </div>
+      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={dj} style={{ width: 100 }} />
@@ -180,6 +182,7 @@ const EventElement = (props) => {
           Die passende Musik für deine Party
         </div>
       </div>
+      */}
     </div>
   );
 };
@@ -194,7 +197,8 @@ const PartiesElement = (props) => {
       onTouchMove={onTouchMove}
       onTouchEnd={() => onTouchEnd()}
     >
-      <div className="title">Unsere Events</div>
+      <div className="title">Kunst à la demande</div>
+      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={queen} style={{ width: 100 }} />
@@ -204,15 +208,16 @@ const PartiesElement = (props) => {
           FemDom Spieleabend
         </div>
       </div>
+      */}
       <div className="bulle">
         <div className="imgcontainer">
           <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Erotic Art</div>
-          Love to Love
-        </div>
+          <div className="textcontainertitle">Kunst</div>
+          Mit unserer Hilfe werden aus deinen Ideen hochwertige Kunstproduktionen</div>
       </div>
+      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={harness} style={{ width: 100 }} />
@@ -222,7 +227,8 @@ const PartiesElement = (props) => {
           Hedonist*innen im Harness
         </div>
       </div>
-    </div>
+      */}
+    </div >
   );
 };
 
@@ -237,8 +243,8 @@ const AllThreeElement = () => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">PR & Kommunikation</div>
-          Wir stehen unseren Partnern beratend zur Seite und übernehmen auch die
-          komplette Kommunikation.
+          Alles aus einer Hand von Strategie bis hin zum Community
+          Management.
         </div>
       </div>
       <div className="bulle">
@@ -256,20 +262,8 @@ const AllThreeElement = () => {
           <img src={data} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Daten- & Jugendschutz</div>
-          Wir kümmern uns darum, damit du ruhig schlafen kannst
-        </div>
-      </div>
-      <div className="title">
-        Zusätzlich bieten wir Live-Events und Eventmanagement an
-      </div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={party} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Einlasskontrolle</div>
-          Ein erfahrenes Team an deiner Tür
+          <div className="textcontainertitle">Datenschutz</div>
+          Wir sind Datenschützer. Natürlich beraten und schulen auch Gewerbetreibende.
         </div>
       </div>
       <div className="bulle">
@@ -283,40 +277,11 @@ const AllThreeElement = () => {
       </div>
       <div className="bulle">
         <div className="imgcontainer">
-          <img src={dj} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">DJ</div>
-          Die passende Musik für deine Party
-        </div>
-      </div>
-      <div className="title">Unsere Events</div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={queen} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Damenwahl</div>
-          FemDom Spieleabend
-        </div>
-      </div>
-      <div className="bulle">
-        <div className="imgcontainer">
           <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Erotic Art</div>
-          Love to Love
-        </div>
-      </div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={harness} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Harness Madness</div>
-          Hedonist*innen im Harness
-        </div>
+          <div className="textcontainertitle">Kunst</div>
+          Mit unserer Hilfe werden aus deinen Ideen hochwertige Kunstproduktionen</div>
       </div>
       <br />
       <br />
