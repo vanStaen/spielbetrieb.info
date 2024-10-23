@@ -7,7 +7,7 @@ import { Contact } from "./components/Contact/Contact";
 import { consoleGreetings } from "./helpers/consoleGreetings";
 import { Main } from "./pages/Main";
 import { pageStore } from "./store/pageStore/pageStore";
-import { Impressum } from "./components/Impressum/Impressum";
+import { Legals } from "./components/Legals/Legals";
 
 import "./lib/i18n";
 import "./App.less";
@@ -54,7 +54,7 @@ const App = observer(() => {
     <BrowserRouter>
       <div className="App">
         <Contact />
-        <Impressum />
+        <Legals />
         <div className="main">
           <Main />
         </div>

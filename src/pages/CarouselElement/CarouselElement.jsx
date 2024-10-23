@@ -302,11 +302,11 @@ const AllThreeElement = () => {
       </div>
       <div className="bulle">
         <div className="imgcontainer">
-          <img src={fist} style={{ width: 100 }} />
+          <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Fisting Club</div>
-          Anale Liebe, von soft bis extrem
+          <div className="textcontainertitle">Erotic Art</div>
+          Love to Love
         </div>
       </div>
       <div className="bulle">

@@ -4,11 +4,11 @@
     position: fixed;
     top: 0;
     z-index: 1;
-    background-image: url('../img/background.jpg');
-    background-size: cover; 
+    background-image: url('../img/background.svg');
+    background-size: cover;
 }
 
-.main__doublearrow {
+.main__doublearrow {
     position: absolute;
     bottom: 30px;
     transform: rotate(-90deg);
@@ -20,9 +20,14 @@
 }
 
 @keyframes opacityPulse {
-    from {opacity: .5;}
-    to {opacity: 1;}
- }
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 .main__title {
     position: sticky;
@@ -34,6 +39,7 @@
     font-weight: 600;
     color: rgba(225, 207, 187, 1);
 }
+
 .main__subtext {
     position: sticky;
     z-index: 5;
@@ -53,6 +59,7 @@
     .main__title {
         font-size: 27px;
     }
+
     .main__subtext {
         top: 70px;
         font-size: 11px;
@@ -66,12 +73,14 @@
     width: 100vw;
     min-height: calc(100vh - 115px);
     background: linear-gradient(rgba(20, 36, 54, 1), 80%, transparent);
-    border-top: solid rgba(225, 207, 187, 0.1);;
+    border-top: solid rgba(225, 207, 187, 0.1);
+    ;
     font-size: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .desc {
         max-width: 700px;
         margin: 20px;
@@ -81,11 +90,13 @@
         font-weight: 300;
         color: rgba(225, 207, 187, 1);
     }
+
     @media all and (max-width: 420px) {
         .desc {
             font-size: 14px;
         }
     }
+
     .carouselPoints {
         .point {
             display: inline-block;
@@ -101,7 +112,7 @@
 }
 
 @media all and (max-width: 420px) {
-    .main__containerNext { 
+    .main__containerNext {
         min-height: auto;
     }
 }
