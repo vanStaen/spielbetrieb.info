@@ -1,7 +1,7 @@
 {
   "name": "spielbetrieb.info",
   "version": "1.0",
-  "description": "Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digital-Agentur spezialisiert auf Kommunikation, PR, Eventmanagement sowie Daten- & Jugendschutz.",
+  "description": "Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digital-Agentur spezialisiert auf Kommunikation, PR, Eventmanagement sowie Datenschutz.",
   "scripts": {
     "start": "webpack serve --config webpack.config.dev.js --hot --open",
     "prebuild": "rm -rf ./build",

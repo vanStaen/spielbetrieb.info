@@ -75,7 +75,7 @@ export const Main = observer(() => {
           </div>
           <span style={{ fontWeight: 500 }}>
             Eine Digital-Agentur spezialisiert auf Kommunikation, PR,
-            Eventmanagement sowie Daten- & Jugendschutz.
+            Eventmanagement sowie Datenschutz.
           </span>
         </div>
         <CarouselElement id={pageStore.selectedCarouselPage} />

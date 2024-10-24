@@ -1,5 +1,5 @@
 # spielbetrieb.info
-Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digital-Agentur spezialisiert auf Kommunikation, PR, Eventmanagement sowie Daten- & Jugendschutz.
+Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis. Wir sind eine Digital-Agentur spezialisiert auf Kommunikation, PR, Eventmanagement sowie Datenschutz.
 
 ## Hosting
 Hosted on 'GitHub Pages', hence the npm package `gh-pages`.
