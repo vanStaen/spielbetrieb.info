@@ -5,7 +5,7 @@ const cookies = new Cookies();
 
 export class PageStore {
   selectedLanguage = cookies.get("selectedLanguage");
-  allowCookie = cookies.get("allowCookie");
+  allowCookie = cookies.get("allowCookie") || false;
   selectedCarouselPage = 1;
 
   constructor() {

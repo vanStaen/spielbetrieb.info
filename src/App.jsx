@@ -8,6 +8,7 @@ import { consoleGreetings } from "./helpers/consoleGreetings";
 import { Main } from "./pages/Main";
 import { pageStore } from "./store/pageStore/pageStore";
 import { Legals } from "./components/Legals/Legals";
+import { AcceptCookies } from "./components/AcceptCookies/AcceptCookies";
 
 import "./lib/i18n";
 import "./App.less";
@@ -53,6 +54,7 @@ const App = observer(() => {
   return (
     <BrowserRouter>
       <div className="App">
+        <AcceptCookies />
         <Contact />
         <Legals />
         <div className="main">
