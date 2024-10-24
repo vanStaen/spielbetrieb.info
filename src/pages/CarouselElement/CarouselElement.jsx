@@ -1,38 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useState, /* useRef, */ useEffect } from "react";
+// import { useTranslation } from "react-i18next";
 
 import pr from "../../img/logos/pr.png";
 import marketing from "../../img/logos/marketing.png";
 import data from "../../img/logos/data.png";
-import dj from "../../img/logos/dj.png";
+// import dj from "../../img/logos/dj.png";
 import chair from "../../img/logos/chair.png";
-import party from "../../img/logos/party.png";
+// import party from "../../img/logos/party.png";
 import lips from "../../img/logos/lips.png";
-import queen from "../../img/logos/queen.png";
-import harness from "../../img/logos/harness.png";
+// import queen from "../../img/logos/queen.png";
+// import harness from "../../img/logos/harness.png";
 
-import { pageStore } from "../../store/pageStore/pageStore";
+// import { pageStore } from "../../store/pageStore/pageStore";
 
 import "./CarouselElement.less";
 
 // the required distance between touchStart and touchEnd to be detected as a swipe
-const MIN_SWIPE_DISTANCE = 20;
+// const MIN_SWIPE_DISTANCE = 20;
 
 export const CarouselElement = (props) => {
-  const { id } = props;
+  // const { id } = props;
   const [showAll, setShowAll] = useState(null);
-  const [touchStart, setTouchStart] = useState(null);
+  /* const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const throttling = useRef(false);
+  const throttling = useRef(false); */
 
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  // const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
 
-  const onTouchStart = (e) => {
+  /* const onTouchStart = (e) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
     setTouchStart(e.targetTouches[0].clientX);
-  };
+  }; */
 
-  const onTouchEnd = () => {
+  /* const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
@@ -48,7 +48,7 @@ export const CarouselElement = (props) => {
         throttling.current = false;
       }, 500);
     }
-  };
+  }; */
 
   const resizeHandler = () => {
     const windowInnerWidth = window.innerWidth;
@@ -67,7 +67,7 @@ export const CarouselElement = (props) => {
     };
   }, [resizeHandler]);
 
-  if (showAll) {
+  /* if (showAll) {
     return <AllThreeElement />;
   } else if (id === 1) {
     return (
@@ -93,12 +93,18 @@ export const CarouselElement = (props) => {
         onTouchEnd={onTouchEnd}
       />
     );
+  } */
+
+  if (showAll) {
+    return <AllThreeElement />;
+  } else {
+    return <LegalElement />;
   }
 };
 
 const LegalElement = (props) => {
   const { onTouchStart, onTouchMove, onTouchEnd } = props;
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div
       className="main__element"
@@ -113,7 +119,7 @@ const LegalElement = (props) => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">PR & Kommunikation</div>
-          Alles aus einer Hand von Strategie bis hin zum Community Management.
+          Alles aus einer Hand. Von Strategie bis hin zum Communitymanagement.
         </div>
       </div>
       <div className="bulle">
@@ -122,8 +128,8 @@ const LegalElement = (props) => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">Marketing & Werbung</div>
-          Von online Werbung bis hin zu Streuartikel haben wir deine Marke im
-          Griff
+          Von Onlinewerbung bis hin zu Streuartikel. Wir haben deine Marke im
+          Griff.
         </div>
       </div>
       <div className="bulle">
@@ -132,14 +138,34 @@ const LegalElement = (props) => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">Datenschutz</div>
-          Wir sind Datenschützer. Natürlich beraten und schulen auch Gewerbetreibende.
+          Wir sind Datenschützer. Natürlich beraten und schulen wir auch
+          Gewerbetreibende.
+        </div>
+      </div>
+      <div className="bulle">
+        <div className="imgcontainer">
+          <img src={chair} style={{ width: 100 }} />
+        </div>
+        <div className="textcontainer">
+          <div className="textcontainertitle">Möbel</div>
+          Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons
+        </div>
+      </div>
+      <div className="bulle">
+        <div className="imgcontainer">
+          <img src={lips} style={{ width: 100 }} />
+        </div>
+        <div className="textcontainer">
+          <div className="textcontainertitle">Erotika</div>
+          Mit unserer Hilfe werden aus deinen Ideen hochwertige
+          Kunstproduktionen.
         </div>
       </div>
     </div>
   );
 };
 
-const EventElement = (props) => {
+/* const EventElement = (props) => {
   const { onTouchStart, onTouchMove, onTouchEnd } = props;
   const { t } = useTranslation();
   return (
@@ -152,7 +178,6 @@ const EventElement = (props) => {
       <div className="title">
         Zusätzlich bieten wir Live-Events und Eventmanagement an
       </div>
-      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={party} style={{ width: 100 }} />
@@ -162,7 +187,6 @@ const EventElement = (props) => {
           Ein erfahrenes Team an deiner Tür
         </div>
       </div> 
-      */}
       <div className="bulle">
         <div className="imgcontainer">
           <img src={chair} style={{ width: 100 }} />
@@ -172,7 +196,6 @@ const EventElement = (props) => {
           Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons
         </div>
       </div>
-      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={dj} style={{ width: 100 }} />
@@ -182,14 +205,13 @@ const EventElement = (props) => {
           Die passende Musik für deine Party
         </div>
       </div>
-      */}
     </div>
   );
-};
+}; */
 
-const PartiesElement = (props) => {
+/* const PartiesElement = (props) => {
   const { onTouchStart, onTouchMove, onTouchEnd } = props;
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div
       className="main__element"
@@ -198,7 +220,6 @@ const PartiesElement = (props) => {
       onTouchEnd={() => onTouchEnd()}
     >
       <div className="title">Kunst à la demande</div>
-      {/* 
       <div className="bulle">
         <div className="imgcontainer">
           <img src={queen} style={{ width: 100 }} />
@@ -208,14 +229,15 @@ const PartiesElement = (props) => {
           FemDom Spieleabend
         </div>
       </div>
-      */}
       <div className="bulle">
         <div className="imgcontainer">
           <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">Kunst</div>
-          Mit unserer Hilfe werden aus deinen Ideen hochwertige Kunstproduktionen</div>
+          Mit unserer Hilfe werden aus deinen Ideen hochwertige
+          Kunstproduktionen
+        </div>
       </div>
       {/* 
       <div className="bulle">
@@ -227,13 +249,13 @@ const PartiesElement = (props) => {
           Hedonist*innen im Harness
         </div>
       </div>
-      */}
-    </div >
+    </div>
   );
 };
+*/
 
 const AllThreeElement = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className="main__element">
       <div className="title">Zu unseren Leistungen gehören</div>
@@ -243,8 +265,7 @@ const AllThreeElement = () => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">PR & Kommunikation</div>
-          Alles aus einer Hand von Strategie bis hin zum Community
-          Management.
+          Alles aus einer Hand. Von Strategie bis hin zum Communitymanagement.
         </div>
       </div>
       <div className="bulle">
@@ -253,8 +274,8 @@ const AllThreeElement = () => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">Marketing & Werbung</div>
-          Von online Werbung bis hin zu Streuartikel haben wir deine Marke im
-          Griff
+          Von onlinewerbung bis hin zu Streuartikel. Wir haben deine Marke im
+          Griff.
         </div>
       </div>
       <div className="bulle">
@@ -263,7 +284,8 @@ const AllThreeElement = () => {
         </div>
         <div className="textcontainer">
           <div className="textcontainertitle">Datenschutz</div>
-          Wir sind Datenschützer. Natürlich beraten und schulen auch Gewerbetreibende.
+          Wir sind Datenschützer. Natürlich beraten und schulen wir auch
+          Gewerbetreibende.
         </div>
       </div>
       <div className="bulle">
@@ -271,8 +293,8 @@ const AllThreeElement = () => {
           <img src={chair} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Spielmöbel</div>
-          Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons
+          <div className="textcontainertitle">Möbel</div>
+          Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons.
         </div>
       </div>
       <div className="bulle">
@@ -280,8 +302,10 @@ const AllThreeElement = () => {
           <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Kunst</div>
-          Mit unserer Hilfe werden aus deinen Ideen hochwertige Kunstproduktionen</div>
+          <div className="textcontainertitle">Erotika</div>
+          Mit unserer Hilfe werden aus deinen Ideen hochwertige
+          Kunstproduktionen.
+        </div>
       </div>
       <br />
       <br />
