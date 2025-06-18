@@ -68,7 +68,7 @@ export const Main = observer(() => {
           elementArrow.style.display = "none";
         } */
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    hideArrow();
+    hideShowArrow();
   };
 
   return (
