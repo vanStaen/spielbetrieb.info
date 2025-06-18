@@ -26,7 +26,7 @@ export const Main = observer(() => {
     selectedPoint.style.backgroundColor = "rgba(255,255,255,1)";
   }, [pageStore.selectedCarouselPage]); */
 
-  const hideArrow = () => {
+  const hideShowArrow = () => {
     // hide based on scroll position
     const hasScrollDownMorethan25percent = window.scrollY > (window.innerHeight / 4)
 
@@ -35,6 +35,11 @@ export const Main = observer(() => {
       elementArrow.style.display = "none";
       const elementMore = document.getElementById("more");
       elementMore.style.display = "none";
+    } else if (window.scrollY < window.innerHeight / 4) {
+      const elementArrow = document.getElementById("arrow");
+      elementArrow.style.display = "block";
+      const elementMore = document.getElementById("more");
+      elementMore.style.display = "block";
     }
   };
 
@@ -49,13 +54,13 @@ export const Main = observer(() => {
 
   useEffect(() => {
     // resizeHandler();
-    document.addEventListener("scroll", hideArrow);
+    document.addEventListener("scroll", hideShowArrow);
     // window.addEventListener("resize", resizeHandler);
     return () => {
-      document.removeEventListener("scroll", hideArrow);
+      document.removeEventListener("scroll", hideShowArrow);
       // document.removeEventListener("resize", resizeHandler);
     };
-  }, [hideArrow]); // resizeHandler
+  }, [hideShowArrow]); // resizeHandler
 
   const arrowClickHandler = () => {
     /* const windowInnerWidth = window.innerWidth;
