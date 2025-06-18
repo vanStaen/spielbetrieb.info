@@ -12,7 +12,19 @@
     position: absolute;
     bottom: 30px;
     transform: rotate(-90deg);
-    font-size: 50px;
+    font-size: 30px;
+    color: rgba(225, 207, 187, 1);
+    animation: .5s infinite alternate opacityPulse;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.main_mehr {
+    position: absolute;
+    bottom: 75px;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 3px;
     color: rgba(225, 207, 187, 1);
     animation: .5s infinite alternate opacityPulse;
     cursor: pointer;
@@ -21,7 +33,7 @@
 
 @keyframes opacityPulse {
     from {
-        opacity: .5;
+        opacity: .25;
     }
 
     to {
@@ -54,6 +66,30 @@
     color: rgba(225, 207, 187, 1);
 }
 
+.main__subtitle {
+    position: sticky;
+    z-index: 5;
+    font-size: 22px;
+    font-family: "Roboto", Sans-serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, .9);
+}
+
+.main__desc {
+    position: sticky;
+    z-index: 5;
+    font-size: 17px;
+    line-height: 25px;
+    margin-top: 10px;
+    max-width: 90vw;
+    font-family: "Roboto", Sans-serif;
+    letter-spacing: 1px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, .9);
+    text-align: justify;
+    text-justify: inter-word;
+}
 
 @media all and (max-width: 420px) {
     .main__title {

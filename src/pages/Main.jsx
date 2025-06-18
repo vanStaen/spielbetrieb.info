@@ -27,8 +27,15 @@ export const Main = observer(() => {
   }, [pageStore.selectedCarouselPage]); */
 
   const hideArrow = () => {
-    const elementArrow = document.getElementById("arrow");
-    elementArrow.style.display = "none";
+    // hide based on scroll position
+    const hasScrollDownMorethan25percent = window.scrollY > (window.innerHeight / 4)
+
+    if (hasScrollDownMorethan25percent) {
+      const elementArrow = document.getElementById("arrow");
+      elementArrow.style.display = "none";
+      const elementMore = document.getElementById("more");
+      elementMore.style.display = "none";
+    }
   };
 
   /* const resizeHandler = () => {
@@ -62,11 +69,19 @@ export const Main = observer(() => {
   return (
     <>
       <div className="background" />
+      <div className="main_mehr" onClick={arrowClickHandler} id="more">
+        Scroll runter um <br />mehr zu erfähren
+      </div>
       <div className="main__doublearrow" id="arrow">
         <DoubleLeftOutlined onClick={arrowClickHandler} />
       </div>
       <div className="main__title">Spielbetrieb</div>
       <div className="main__subtext">love to love</div>
+      <br />
+      <div className="main__subtitle">Agentur für Erotika und Entertainment</div>
+      <div className="main__desc">
+        Wir sind Spielbetrieb – eine kreative Web- und Kommunikationsagentur mit Sitz in Berlin und einem klaren Fokus: Wir entwickeln digitale Räume, strategische Kommunikation und visuelle Identitäten für mutige Marken, visionäre Unternehmer*innen und kreative Szenen. Unsere Stärke liegt in der Verbindung von Ästhetik, Strategie und Community – immer mit Haltung, oft mit Eigensinn, niemals von der Stange.
+      </div>
       <div className="main__containerNext">
         {/* <Buttons color="rgba(200,200,200,1)" numPages={3} /> */}
         <div className="desc">
