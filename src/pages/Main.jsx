@@ -27,7 +27,6 @@ export const Main = observer(() => {
   }, [pageStore.selectedCarouselPage]); */
 
   const scrollingBehavior = () => {
-    // hide based on scroll position
     const hasScrollDownMorethan25percent = window.scrollY > (window.innerHeight / 4)
 
     if (hasScrollDownMorethan25percent) {
@@ -77,7 +76,6 @@ export const Main = observer(() => {
           elementArrow.style.display = "none";
         } */
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    hideShowArrow();
   };
 
   return (
