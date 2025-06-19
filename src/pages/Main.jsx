@@ -26,7 +26,7 @@ export const Main = observer(() => {
     selectedPoint.style.backgroundColor = "rgba(255,255,255,1)";
   }, [pageStore.selectedCarouselPage]); */
 
-  const hideShowArrow = () => {
+  const scrollingBehavior = () => {
     // hide based on scroll position
     const hasScrollDownMorethan25percent = window.scrollY > (window.innerHeight / 4)
 
@@ -41,6 +41,15 @@ export const Main = observer(() => {
       const elementMore = document.getElementById("more");
       elementMore.style.display = "block";
     }
+
+    const opacityValue = 2 - (window.scrollY / document.body.clientHeight) * 4;
+    console.log(window.scrollY / document.body.clientHeight, opacityValue)
+
+    const elementDesc = document.getElementById("desc");
+    elementDesc.style.opacity = opacityValue;
+    const elementSubtitle = document.getElementById("subtitle");
+    elementSubtitle.style.opacity = opacityValue;
+
   };
 
   /* const resizeHandler = () => {
@@ -54,13 +63,13 @@ export const Main = observer(() => {
 
   useEffect(() => {
     // resizeHandler();
-    document.addEventListener("scroll", hideShowArrow);
+    document.addEventListener("scroll", scrollingBehavior);
     // window.addEventListener("resize", resizeHandler);
     return () => {
-      document.removeEventListener("scroll", hideShowArrow);
+      document.removeEventListener("scroll", scrollingBehavior);
       // document.removeEventListener("resize", resizeHandler);
     };
-  }, [hideShowArrow]); // resizeHandler
+  }, [scrollingBehavior]); // resizeHandler
 
   const arrowClickHandler = () => {
     /* const windowInnerWidth = window.innerWidth;
@@ -83,8 +92,8 @@ export const Main = observer(() => {
       <div className="main__title">Spielbetrieb</div>
       <div className="main__subtext">love to love</div>
       <br />
-      <div className="main__subtitle">Agentur für Erotika und Entertainment</div>
-      <div className="main__desc">
+      <div className="main__subtitle" id="subtitle">Agentur für Erotika und Entertainment</div>
+      <div className="main__desc" id="desc">
         Wir sind Spielbetrieb – eine kreative Web- und Kommunikationsagentur mit Sitz in Berlin und einem klaren Fokus: Wir entwickeln digitale Räume, strategische Kommunikation und visuelle Identitäten für mutige Marken, visionäre Unternehmer*innen und kreative Szenen. Unsere Stärke liegt in der Verbindung von Ästhetik, Strategie und Community – immer mit Haltung, oft mit Eigensinn, niemals von der Stange.
       </div>
       <div className="main__containerNext">
