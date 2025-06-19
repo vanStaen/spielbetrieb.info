@@ -42,8 +42,6 @@ export const Main = observer(() => {
     }
 
     const opacityValue = 2 - (window.scrollY / document.body.clientHeight) * 4;
-    console.log(window.scrollY / document.body.clientHeight, opacityValue)
-
     const elementDesc = document.getElementById("desc");
     elementDesc.style.opacity = opacityValue;
     const elementSubtitle = document.getElementById("subtitle");
