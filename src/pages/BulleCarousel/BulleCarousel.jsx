@@ -1,38 +1,37 @@
-import React, { useState, /* useRef, */ useEffect } from "react";
-// import { useTranslation } from "react-i18next";
+import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import pr from "../../img/logos/pr.png";
 import marketing from "../../img/logos/marketing.png";
 import data from "../../img/logos/data.png";
-// import dj from "../../img/logos/dj.png";
+import dj from "../../img/logos/dj.png";
 import chair from "../../img/logos/chair.png";
-// import party from "../../img/logos/party.png";
+import party from "../../img/logos/party.png";
 import lips from "../../img/logos/lips.png";
-// import queen from "../../img/logos/queen.png";
-// import harness from "../../img/logos/harness.png";
+import queen from "../../img/logos/queen.png";
+//import harness from "../../img/logos/harness.png";
 
-// import { pageStore } from "../../store/pageStore/pageStore";
+import { pageStore } from "../../store/pageStore/pageStore";
 
-import "./CarouselElement.less";
+import "./BulleCarousel.less";
 
 // the required distance between touchStart and touchEnd to be detected as a swipe
-// const MIN_SWIPE_DISTANCE = 20;
+const MIN_SWIPE_DISTANCE = 20;
 
-export const CarouselElement = (props) => {
-  // const { id } = props;
-  const [showAll, setShowAll] = useState(null);
-  /* const [touchStart, setTouchStart] = useState(null);
+export const BulleCarousel = (props) => {
+  const { id } = props;
+  const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const throttling = useRef(false); */
+  const throttling = useRef(false);
 
-  // const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
 
-  /* const onTouchStart = (e) => {
+  const onTouchStart = (e) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
     setTouchStart(e.targetTouches[0].clientX);
-  }; */
+  };
 
-  /* const onTouchEnd = () => {
+  const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
@@ -48,28 +47,8 @@ export const CarouselElement = (props) => {
         throttling.current = false;
       }, 500);
     }
-  }; */
-
-  const resizeHandler = () => {
-    const windowInnerWidth = window.innerWidth;
-    if (windowInnerWidth > 725) {
-      setShowAll(false);
-    } else {
-      setShowAll(true);
-    }
   };
-
-  useEffect(() => {
-    resizeHandler();
-    window.addEventListener("resize", resizeHandler);
-    return () => {
-      document.removeEventListener("resize", resizeHandler);
-    };
-  }, [resizeHandler]);
-
-  /* if (showAll) {
-    return <AllThreeElement />;
-  } else if (id === 1) {
+  if (id === 1) {
     return (
       <LegalElement
         onTouchStart={onTouchStart}
@@ -93,13 +72,9 @@ export const CarouselElement = (props) => {
         onTouchEnd={onTouchEnd}
       />
     );
-  } */
-
-  if (showAll) {
-    return <AllThreeElement />;
-  } else {
-    return <LegalElement />;
   }
+
+  return <LegalElement />;
 };
 
 const LegalElement = (props) => {
@@ -142,30 +117,11 @@ const LegalElement = (props) => {
           Gewerbetreibende.
         </div>
       </div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={chair} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Möbel</div>
-          Miete, einzelne Spielmöbel oder ganze Pop-up Dungeons
-        </div>
-      </div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={lips} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Erotika</div>
-          Mit unserer Hilfe werden aus deinen Ideen hochwertige
-          Kunstproduktionen.
-        </div>
-      </div>
     </div>
   );
 };
 
-/* const EventElement = (props) => {
+const EventElement = (props) => {
   const { onTouchStart, onTouchMove, onTouchEnd } = props;
   const { t } = useTranslation();
   return (
@@ -186,7 +142,7 @@ const LegalElement = (props) => {
           <div className="textcontainertitle">Einlasskontrolle</div>
           Ein erfahrenes Team an deiner Tür
         </div>
-      </div> 
+      </div>
       <div className="bulle">
         <div className="imgcontainer">
           <img src={chair} style={{ width: 100 }} />
@@ -198,18 +154,18 @@ const LegalElement = (props) => {
       </div>
       <div className="bulle">
         <div className="imgcontainer">
-          <img src={dj} style={{ width: 100 }} />
+          <img src={queen} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">DJ</div>
-          Die passende Musik für deine Party
+          <div className="textcontainertitle">Damenwahl</div>
+          FemDom Spieleabend
         </div>
       </div>
     </div>
   );
-}; */
+};
 
-/* const PartiesElement = (props) => {
+const PartiesElement = (props) => {
   const { onTouchStart, onTouchMove, onTouchEnd } = props;
   // const { t } = useTranslation();
   return (
@@ -220,39 +176,29 @@ const LegalElement = (props) => {
       onTouchEnd={() => onTouchEnd()}
     >
       <div className="title">Kunst à la demande</div>
-      <div className="bulle">
-        <div className="imgcontainer">
-          <img src={queen} style={{ width: 100 }} />
-        </div>
-        <div className="textcontainer">
-          <div className="textcontainertitle">Damenwahl</div>
-          FemDom Spieleabend
-        </div>
-      </div>
+
       <div className="bulle">
         <div className="imgcontainer">
           <img src={lips} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Kunst</div>
+          <div className="textcontainertitle">Erotika</div>
           Mit unserer Hilfe werden aus deinen Ideen hochwertige
-          Kunstproduktionen
+          Kunstproduktionen.
         </div>
       </div>
-      {/* 
       <div className="bulle">
         <div className="imgcontainer">
-          <img src={harness} style={{ width: 100 }} />
+          <img src={dj} style={{ width: 100 }} />
         </div>
         <div className="textcontainer">
-          <div className="textcontainertitle">Harness Madness</div>
-          Hedonist*innen im Harness
+          <div className="textcontainertitle">Beats</div>
+          Die passende Musik für deine Party: von richtige DJ bis zum Musik Production
         </div>
       </div>
     </div>
   );
 };
-*/
 
 const AllThreeElement = () => {
   // const { t } = useTranslation();

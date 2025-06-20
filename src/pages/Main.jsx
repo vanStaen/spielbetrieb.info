@@ -1,17 +1,17 @@
-import React, { useEffect /*, useState */ } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { DoubleLeftOutlined } from "@ant-design/icons";
 
-// import { Buttons } from "../components/Buttons/Buttons";
-import { CarouselElement } from "./CarouselElement/CarouselElement";
-
-import "./Main.less";
+import { Buttons } from "../components/Buttons/Buttons";
+import { BulleCarousel } from "./BulleCarousel/BulleCarousel";
 import { pageStore } from "../store/pageStore/pageStore";
 
-export const Main = observer(() => {
-  // const [showPoints, setShowPoints] = useState(true);
+import "./Main.less";
 
-  /* useEffect(() => {
+export const Main = observer(() => {
+  const [showPoints, setShowPoints] = useState(true);
+
+  useEffect(() => {
     const allPoints = document.getElementsByClassName("point");
     allPoints[0].style.width = "10px";
     allPoints[0].style.backgroundColor = "rgba(255,255,255,.75)";
@@ -24,7 +24,7 @@ export const Main = observer(() => {
     );
     selectedPoint.style.width = "30px";
     selectedPoint.style.backgroundColor = "rgba(255,255,255,1)";
-  }, [pageStore.selectedCarouselPage]); */
+  }, [pageStore.selectedCarouselPage]);
 
   const scrollingBehavior = () => {
     const hasScrollDownMorethan25percent = window.scrollY > (window.innerHeight / 4)
@@ -42,6 +42,7 @@ export const Main = observer(() => {
     }
 
     const opacityValue = 2 - (window.scrollY / document.body.clientHeight) * 4;
+
     const elementDesc = document.getElementById("desc");
     elementDesc.style.opacity = opacityValue;
     const elementSubtitle = document.getElementById("subtitle");
@@ -49,30 +50,31 @@ export const Main = observer(() => {
 
   };
 
-  /* const resizeHandler = () => {
+  const resizeHandler = () => {
     const windowInnerWidth = window.innerWidth;
     if (windowInnerWidth > 725) {
       setShowPoints(true);
     } else {
       setShowPoints(false);
     }
-  }; */
+  };
 
   useEffect(() => {
-    // resizeHandler();
+    resizeHandler();
     document.addEventListener("scroll", scrollingBehavior);
-    // window.addEventListener("resize", resizeHandler);
+    window.addEventListener("resize", resizeHandler);
     return () => {
       document.removeEventListener("scroll", scrollingBehavior);
-      // document.removeEventListener("resize", resizeHandler);
+      document.removeEventListener("resize", resizeHandler);
     };
   }, [scrollingBehavior]); // resizeHandler
 
   const arrowClickHandler = () => {
-    /* const windowInnerWidth = window.innerWidth;
-        if (windowInnerWidth > 675) {
-          elementArrow.style.display = "none";
-        } */
+    const windowInnerWidth = window.innerWidth;
+    if (windowInnerWidth > 675) {
+      const elementArrow = document.getElementById("arrow");
+      elementArrow.style.display = "none";
+    }
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
 
@@ -93,7 +95,7 @@ export const Main = observer(() => {
         Wir sind Spielbetrieb – eine kreative Web- und Kommunikationsagentur mit Sitz in Berlin und einem klaren Fokus: Wir entwickeln digitale Räume, strategische Kommunikation und visuelle Identitäten für mutige Marken, visionäre Unternehmer*innen und kreative Szenen. Unsere Stärke liegt in der Verbindung von Ästhetik, Strategie und Community – immer mit Haltung, oft mit Eigensinn, niemals von der Stange.
       </div>
       <div className="main__containerNext">
-        {/* <Buttons color="rgba(200,200,200,1)" numPages={3} /> */}
+        <Buttons color="rgba(200,200,200,1)" numPages={3} />
         <div className="desc">
           <div style={{ color: "rgba(255,255,255,1)", marginBottom: 10 }}>
             Spielbetrieb ist ein ganzheitliches, sexpositives Erlebnis:
@@ -103,8 +105,8 @@ export const Main = observer(() => {
             Eventmanagement sowie Datenschutz.
           </span>
         </div>
-        <CarouselElement id={pageStore.selectedCarouselPage} />
-        {/* showPoints && (
+        <BulleCarousel id={pageStore.selectedCarouselPage} />
+        {showPoints && (
           <div className="carouselPoints">
             <div
               id="point1"
@@ -122,7 +124,7 @@ export const Main = observer(() => {
               onClick={() => pageStore.setSelectedCarouselPage(3)}
             ></div>
           </div>
-        ) */}
+        )}
       </div>
     </>
   );
